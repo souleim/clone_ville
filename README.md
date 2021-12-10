@@ -14,5 +14,6 @@ J'ai réalisé le projet seul. Back, front et logo.
 ## Technologies
 - Php Symfony
     - plugin CKEditor
+- Javascript
 - Html Css
 - Affinity Designer
