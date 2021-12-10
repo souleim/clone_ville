@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rechercher{% endblock %}
+
+
+{# {% block monTitre %}Recherche dans l'inventaire{% endblock %} #}
+{% block recherche %}
+    
+    <div id="section_recherche">
+        <div id="formulaire_recherche">
+            <h2>Recherche dans l'inventaire</h2>
+           {{form_start(form)}}
+                {{form_row(form.mots)}}
+                <button type="submit"><img src="{{asset('images/loupe02.png')}}" alt="Lancer la recherche"></button>
+           {{form_end(form)}}
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+
+{% block body %}
+    {% if app.request.request | length > 0 %}
+    
+     {% for article in articles %}
+        <h2><a href="{{path('accueil', {'id': article.id})}}">{{article.titre}}
+        </a></h2>
+    {% endfor %}
+    {% endif %}
+   
+
+{% endblock %}

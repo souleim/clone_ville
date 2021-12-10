@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Archive et inventaire du partimoine{% endblock %}
+
+
+
+{# {% block monTitre %}Archive et inventaire du partimoine{% endblock %} #}
+
+{% block recherche %}{% endblock %}
+
+{% block body %}
+   
+
+    <article>
+
+        <section>
+            {% for article in articles_alea %}
+                <h1>{{article.titre}}</h1>
+                <div id="contenu">
+                    {{article.contenu | raw}}
+                </div>
+            {% endfor %}
+        </section>
+        <aside>Bloc lateral</aside>
+    </article>
+
+{% endblock %}

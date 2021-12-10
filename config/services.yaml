@@ -21,5 +21,12 @@ services:
             - '../src/Kernel.php'
             - '../src/Tests/'
 
+    # Librairie "berberlei" pour afficher des données aléatoires
+doctrine:
+    orm:
+        dql:
+            numeric_functions:
+                rand: DoctrineExtensions\Query\Mysql\Rand
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

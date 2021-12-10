@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Expositions{% endblock %}
+
+{% block monTitre %}Expositions{% endblock %}
+
+
+{% block body %}
+    <div id="ajout-diaporama">
+        {{form_start(form)}}
+
+            {{form_row(form.titre)}}
+            {{form_row(form.image)}}
+            {{form_row(form.description)}}
+          
+            <button type="submit">Envoyer</button>
+
+        {{form_end(form)}}
+    </div>
+    
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{asset('ckeditor5/ckeditor.js')}}"></script>
+    <script src="{{asset('js/ckeditor.js')}}"></script>
+{% endblock %}

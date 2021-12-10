@@ -12,8 +12,116 @@
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
     </head>
     <body>
+        {% block header %}
+        <header>
+            
+            <div id="menu">
+                <div class="menu_burger">
+                    <div class="btn_burger"></div>
+                </div>
+                <div id="cadre_diapo">
+                    <div id="diaporama">
+                        <div class="elements">
+
+                            {% for diapo in diapos.getDiapos %}
+                           
+                                <div class="element">
+                                    <img src="{{asset('images/' ~ diapo.image)}}" alt="">
+                                    
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="prec"><img src="{{asset('images/fleche_prec.png')}}" alt=""></div>
+                    <div class="suiv"><img src="{{asset('images/fleche_suiv.png')}}" alt=""></div>
+                </div>
+                
+                <div class="blog_logo">
+                    <a href="/">
+                        <img src="{{asset('images/logo_ville01.png')}}" alt="">
+                        <p class="caption">
+                            L'inventaire du patrimoine
+                            <br>Architectural et urbain
+                            <br>de Pointe d'Archives
+                        </p>
+                    </a>
+                    
+                </div>
+                
+            </div>
+            
+            <nav class="menu_principal">
+                <ul>
+                    <li><a href="{{path('accueil')}}">Accueil</a> </li>
+                    <li><a href="{{path('recherche')}}">Effectuer une recherche</a> </li>
+                    <li><a href="{{path('expositions')}}">Expositions virtuelles</a> </li>
+                    <li><a href="{{path('liens')}}">Liens</a> </li>
+                    <li><a href="{{path('admin_article')}}">ajouter article</a> </li>
+                </ul>
+            </nav>
+        </header>
+        {% endblock %}
+
+        <h1>{% block monTitre %}{% endblock %}</h1>
+
+        {% block recherche %}
+            
+        {% endblock %}
+
         {% block body %}{% endblock %}
+
+        {% block footer %}
+            <div id="footer-top">
+                <nav>
+                    <ul>
+                        <li><a href="{{path('accueil')}}">Facebook archives muncipales <img src="{{asset('images/facebook.png')}}" alt=""></a> </li>
+                        <li><a href="{{path('accueil')}}">Facebook de Ville d'ici <img src="{{asset('images/facebook.png')}}" alt=""></a> </li>
+                     
+                    </ul>
+                </nav>
+            </div>
+                <div id="cadre_footer-bottom">
+                    <div id="footer-bottom">
+                        <div class="logos">
+                            <img class="region" src="{{asset('images/logo_ville01.png')}}" alt="Logo Région">
+                            <img class="region" src="{{asset('images/logo_region_auvergne.jpg')}}" alt="Logo Vile">
+                        </div>
+                        <div class="infos">
+                            <h4>Archives municipales</h4>
+                            <div class="coordonnees">
+                                <div class="adresse">
+                                    
+                                    Bibliothque municipale <br>
+                                    2 rue Lamartine <br>
+                                    93100 Montreuil
+
+                                </div>
+                                <div class="telephone">
+                                    Téléphone : 01 79 61 40 84 <br>
+                                    Email : <br>
+                                    archives@ville.fr
+                                </div>
+                            </div>
+                            <div class="horaires">
+                                <h4>Permanence/Horaires</h4>
+                                <div class="horaire_ouverture">
+                                    Du lundi au jeudi : 8h30/12h00 et 13h30/17h30 <br>
+                                    Vendredi : 8h30/12h30 et 13h30/16h30
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            
+        {% endblock %}
+
+        <script src="{{asset('js/script.js')}}"></script>
+        
     </body>
 </html>
